@@ -27,8 +27,8 @@ public class Main
             Tanggal tomorrow = new Tanggal(19, "Maret", 2025);
             
             // Jadwal Jakarta - Yogyakarta
-            TanggalWaktu jktYogDepartureTime = new TanggalWaktu(tomorrow, new Waktu(8, 0));
-            TanggalWaktu jktYogArrivalTime = new TanggalWaktu(tomorrow, new Waktu(15, 30));
+            TanggalWaktu jktYogDepartureTime = new TanggalWaktu(tomorrow.getHari(), tomorrow.getBulan(), tomorrow.getTahun(), 8, 0); 
+            TanggalWaktu jktYogArrivalTime = new TanggalWaktu(tomorrow.getHari(), tomorrow.getBulan(), tomorrow.getTahun(), 15,30);
             Schedule jktYogSchedule = new Schedule(
                 "SCH001", argoLawu, jakartaStation, yogyaStation, 
                 jktYogDepartureTime, jktYogArrivalTime, 450.0

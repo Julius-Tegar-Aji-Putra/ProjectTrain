@@ -4,19 +4,19 @@ public class Tanggal
     private String bulan;
     private int tahun;
 
-    public Tanggal(int hari, String bulan, int tahun) throws TanggalInvalidException 
+    public Tanggal(int hari, String bulan, int tahun) throws TanggalWaktuInvalidException 
     {
         if (hari < 1 || hari > getJumlahHari(bulan, tahun)) 
         {
-            throw new TanggalInvalidException("Hari tidak valid untuk bulan " + bulan + " tahun " + tahun);
+            throw new TanggalWaktuInvalidException("Hari tidak valid untuk bulan " + bulan + " tahun " + tahun);
         }
         if (intBulan(bulan) == 0) 
         {
-            throw new TanggalInvalidException("Bulan tidak valid: " + bulan);
+            throw new TanggalWaktuInvalidException("Bulan tidak valid: " + bulan);
         }
         if (tahun < 0) 
         {
-            throw new TanggalInvalidException("Tahun tidak valid: " + tahun);
+            throw new TanggalWaktuInvalidException("Tahun tidak valid: " + tahun);
         }
         
         this.hari = hari;
@@ -133,7 +133,7 @@ public class Tanggal
         return this.hari > other.hari;
     }
 
-    public static Tanggal now() throws TanggalInvalidException 
+    public static Tanggal now() throws TanggalWaktuInvalidException 
     {
         // Asumsi tanggal saat ini adalah 18 Maret 2025
         return new Tanggal(18, "Maret", 2025);

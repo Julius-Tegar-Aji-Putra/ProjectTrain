@@ -3,15 +3,15 @@ public class Waktu
     private int jam;
     private int menit;
     
-    public Waktu(int jam, int menit) throws Exception 
+    public Waktu(int jam, int menit) throws TanggalWaktuInvalidException 
     {
         if (jam < 0 || jam > 23) 
         {
-            throw new Exception("Jam tidak valid: " + jam);
+            throw new TanggalWaktuInvalidException("Jam tidak valid: " + jam);
         }
         if (menit < 0 || menit > 59) 
         {
-            throw new Exception("Menit tidak valid: " + menit);
+            throw new TanggalWaktuInvalidException("Menit tidak valid: " + menit);
         }
         
         this.jam = jam;

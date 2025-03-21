@@ -3,10 +3,10 @@ public class TanggalWaktu
     private Tanggal tanggal;
     private Waktu waktu;
     
-    public TanggalWaktu(Tanggal tanggal, Waktu waktu) 
+    public TanggalWaktu(int hari, String bulan, int tahun, int jam, int menit) throws TanggalWaktuInvalidException
     {
-        this.tanggal = tanggal;
-        this.waktu = waktu;
+        this.tanggal = new Tanggal(hari, bulan, tahun);
+        this.waktu = new Waktu(jam, menit);
     }
     
     public Tanggal getTanggal() 
@@ -35,7 +35,7 @@ public class TanggalWaktu
     
     public static TanggalWaktu now() throws Exception 
     {
-        return new TanggalWaktu(Tanggal.now(), new Waktu(10, 30)); // Using a fixed time for demo
+        return new TanggalWaktu(Tanggal.now().getHari(),Tanggal.now().getBulan(),Tanggal.now().getTahun(), 0, 0); 
     }
     
     @Override
