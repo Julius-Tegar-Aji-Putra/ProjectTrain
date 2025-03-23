@@ -1,3 +1,14 @@
+/**
+ * File       : Schedule.java
+ * Deskripsi  : berisi atribut dan method dalam class Schedule
+ * Pembuat    : Kelompok 6
+ *  Ivan Pratomo Soelistio - 24060123120011
+ *  Julius Tegar Aji Putra - 24060123130117
+ *  Muhammad Danendra Daffa - 24060123140164
+ *  Muhammad Imron Rosyadi - 24060123140204
+ * Tanggal    : 18 Maret 2025
+ */
+
 public class Schedule 
 {
     private String scheduleId;
@@ -9,8 +20,7 @@ public class Schedule
     private double distance; // km
     
     public Schedule(String scheduleId, Train train, Station departureStation, Station arrivalStation, 
-                   TanggalWaktu departureTime, TanggalWaktu arrivalTime, double distance) 
-    {
+                   TanggalWaktu departureTime, TanggalWaktu arrivalTime, double distance) {
         this.scheduleId = scheduleId;
         this.train = train;
         this.departureStation = departureStation;
@@ -20,96 +30,78 @@ public class Schedule
         this.distance = distance;
     }
     
-    public String getScheduleId() 
-    { 
+    public String getScheduleId() { 
         return scheduleId; 
     }
     
-    public void setScheduleId(String scheduleId) 
-    { 
+    public void setScheduleId(String scheduleId) { 
         this.scheduleId = scheduleId; 
     }
     
-    public Train getTrain() 
-    { 
+    public Train getTrain() { 
         return train; 
     }
     
-    public void setTrain(Train train) 
-    { 
+    public void setTrain(Train train) { 
         this.train = train; 
     }
     
-    public Station getDepartureStation() 
-    { 
+    public Station getDepartureStation() { 
         return departureStation; 
     }
     
-    public void setDepartureStation(Station departureStation) 
-    { 
+    public void setDepartureStation(Station departureStation) { 
         this.departureStation = departureStation; 
     }
     
-    public Station getArrivalStation() 
-    { 
+    public Station getArrivalStation() { 
         return arrivalStation; 
     }
     
-    public void setArrivalStation(Station arrivalStation) 
-    { 
+    public void setArrivalStation(Station arrivalStation) { 
         this.arrivalStation = arrivalStation; 
     }
     
-    public TanggalWaktu getDepartureTime() 
-    { 
+    public TanggalWaktu getDepartureTime() { 
         return departureTime; 
     }
     
-    public void setDepartureTime(TanggalWaktu departureTime) 
-    { 
+    public void setDepartureTime(TanggalWaktu departureTime) { 
         this.departureTime = departureTime; 
     }
     
-    public TanggalWaktu getArrivalTime() 
-    { 
+    public TanggalWaktu getArrivalTime() { 
         return arrivalTime; 
     }
     
-    public void setArrivalTime(TanggalWaktu arrivalTime) 
-    { 
+    public void setArrivalTime(TanggalWaktu arrivalTime) { 
         this.arrivalTime = arrivalTime; 
     }
     
-    public double getDistance() 
-    { 
+    public double getDistance() { 
         return distance; 
     }
     
-    public void setDistance(double distance) 
-    { 
+    public void setDistance(double distance) { 
         this.distance = distance; 
     }
     
-    public boolean isAvailable() throws Exception 
-    {
+    public boolean isAvailable() throws Exception {
         return TanggalWaktu.now().isBefore(departureTime);
     }
     
-    public java.util.List<Seat> getAvailableSeats() 
-    {
+    public java.util.List<Seat> getAvailableSeats() {
         return train.getAllAvailableSeats();
     }
     
-    public double calculateTravelDuration() 
-    {
-        double avgSpeed = train.getMaxSpeed() * 0.7; //Rata rata kecepatan 70% max speed
+    public double calculateTravelDuration() {
+        double avgSpeed = train.getMaxSpeed() * 0.7; 
         double hours = distance / avgSpeed;
         return hours;
     }
     
     @Override
-    public String toString() 
-    {
+    public String toString() {
         return "Schedule{" +
                 "scheduleId='" + scheduleId + '\'' +
                 ", train=" + train.getTrainName() +

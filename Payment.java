@@ -1,3 +1,14 @@
+/**
+ * File       : Payment.java
+ * Deskripsi  : berisi atribut dan method dalam class Payment
+ * Pembuat    : Kelompok 6
+ *  Ivan Pratomo Soelistio - 24060123120011
+ *  Julius Tegar Aji Putra - 24060123130117
+ *  Muhammad Danendra Daffa - 24060123140164
+ *  Muhammad Imron Rosyadi - 24060123140204
+ * Tanggal    : 18 Maret 2025
+ */
+
 public class Payment 
 {
     private String paymentId;
@@ -5,88 +16,70 @@ public class Payment
     private TanggalWaktu paymentDate;
     private String status; // pending, completed, failed
     
-    public Payment(String paymentId, double amount) throws Exception 
-    {
+    public Payment(String paymentId, double amount) throws Exception {
         this.paymentId = paymentId;
         this.amount = amount;
         this.paymentDate = TanggalWaktu.now();
         this.status = "pending";
     }
     
-    public String getPaymentId() 
-    { 
+    public String getPaymentId() { 
         return paymentId; 
     }
 
-    public void setPaymentId(String paymentId) 
-    { 
+    public void setPaymentId(String paymentId) { 
         this.paymentId = paymentId; 
     }
     
-    public double getAmount() 
-    { 
+    public double getAmount() { 
         return amount; 
     }
 
-    public void setAmount(double amount) 
-    { 
+    public void setAmount(double amount) { 
         this.amount = amount; 
     }
     
-    public TanggalWaktu getPaymentDate() 
-    { 
+    public TanggalWaktu getPaymentDate() { 
         return paymentDate; 
     }
 
-    public void setPaymentDate(TanggalWaktu paymentDate) 
-    { 
+    public void setPaymentDate(TanggalWaktu paymentDate) { 
         this.paymentDate = paymentDate;
     }
     
-    public String getStatus() 
-    { 
+    public String getStatus() { 
         return status; 
     }
 
-    public void setStatus(String status) 
-    { 
+    public void setStatus(String status) { 
         this.status = status; 
     }
     
-    public boolean processPayment() throws PaymentFailedException 
-    {
-        try 
-        {
+    public boolean processPayment() throws PaymentFailedException {
+        try {
             System.out.println("Processing payment of " + amount);
             boolean success = Math.random() > 0.2; // simulasi untuk PaymentFailedException
             
-            if (success) 
-            {
+            if (success) {
                 status = "completed";
                 System.out.println("Payment successful");
                 return true;
-            } 
-            else 
-            {
+            } else {
                 status = "failed";
                 throw new PaymentFailedException("Payment processing failed");
             }
-        } 
-        catch (Exception e) 
-        {
+        } catch (Exception e) {
             status = "failed";
             throw new PaymentFailedException("Payment processing failed: " + e.getMessage());
         }
     }
     
-    public void getReceipt() 
-    {
+    public void getReceipt() {
         System.out.println("Generating receipt for payment " + paymentId);
     }
     
     @Override
-    public String toString() 
-    {
+    public String toString() {
         return "Payment{" +
                 "paymentId='" + paymentId + '\'' +
                 ", amount=" + amount +

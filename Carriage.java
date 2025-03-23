@@ -1,3 +1,14 @@
+/**
+ * File       : Carriage.java
+ * Deskripsi  : berisi atribut dan method dalam class Carriage
+ * Pembuat    : Kelompok 6
+ *  Ivan Pratomo Soelistio - 24060123120011
+ *  Julius Tegar Aji Putra - 24060123130117
+ *  Muhammad Danendra Daffa - 24060123140164
+ *  Muhammad Imron Rosyadi - 24060123140204
+ * Tanggal    : 18 Maret 2025
+ */
+
 public class Carriage 
 {
     public static final double EKONOMI_PRICE_PER_KM = 400.0;
@@ -14,8 +25,7 @@ public class Carriage
     private int capacity;
     private java.util.List<Seat> seats;
 
-    private Carriage(String carriageId, int carriageNumber, String carriageClass, int capacity) 
-    {
+    private Carriage(String carriageId, int carriageNumber, String carriageClass, int capacity) {
         this.carriageId = carriageId;
         this.carriageNumber = carriageNumber;
         this.carriageClass = carriageClass;
@@ -25,25 +35,20 @@ public class Carriage
         createSeats();
     }
 
-    public static Carriage createEkonomiCarriage(String carriageId, int carriageNumber) 
-    {
+    public static Carriage createEkonomiCarriage(String carriageId, int carriageNumber) {
         return new Carriage(carriageId, carriageNumber, "Ekonomi", EKONOMI_CAPACITY);
     }
 
-    public static Carriage createBisnisCarriage(String carriageId, int carriageNumber) 
-    {
+    public static Carriage createBisnisCarriage(String carriageId, int carriageNumber) {
         return new Carriage(carriageId, carriageNumber, "Bisnis", BISNIS_CAPACITY);
     }
 
-    public static Carriage createEksekutifCarriage(String carriageId, int carriageNumber) 
-    {
+    public static Carriage createEksekutifCarriage(String carriageId, int carriageNumber) {
         return new Carriage(carriageId, carriageNumber, "Eksekutif", EKSEKUTIF_CAPACITY);
     }
 
-    private void createSeats() 
-    {
-        for (int i = 1; i <= capacity; i++) 
-        {
+    private void createSeats() {
+        for (int i = 1; i <= capacity; i++) {
             String seatId = carriageId + "-" + i;
             
             String classPrefix;
@@ -64,35 +69,28 @@ public class Carriage
         }
     }
 
-    public String getCarriageId() 
-    { 
+    public String getCarriageId() { 
         return carriageId; 
     }
 
-    public int getCarriageNumber() 
-    { 
+    public int getCarriageNumber() { 
         return carriageNumber; 
     }
 
-    public String getCarriageClass() 
-    { 
+    public String getCarriageClass() { 
         return carriageClass; 
     }
 
-    public int getCapacity() 
-    { 
-        return capacity; 
+    public int getCapacity() { 
+        return capacity;
     }
 
-    public java.util.List<Seat> getSeats() 
-    { 
+    public java.util.List<Seat> getSeats() { 
         return seats; 
     }
     
-    public double getPricePerKm() 
-    {
-        switch (carriageClass) 
-        {
+    public double getPricePerKm() {
+        switch (carriageClass) {
             case "Ekonomi":
                 return EKONOMI_PRICE_PER_KM;
             case "Bisnis":
@@ -100,30 +98,24 @@ public class Carriage
             case "Eksekutif":
                 return EKSEKUTIF_PRICE_PER_KM;
             default:
-                return EKONOMI_PRICE_PER_KM; // Default to ekonomi price
+                return EKONOMI_PRICE_PER_KM; // Deafult : Ekonomi
         }
     }
 
-    public int getTotalAvailableSeats() 
-    {
+    public int getTotalAvailableSeats() {
         int availableSeats = 0;
-        for (Seat seat : seats) 
-        {
-            if (!seat.isBooked()) 
-            {
+        for (Seat seat : seats) {
+            if (!seat.isBooked()) {
                 availableSeats++;
             }
         }
         return availableSeats;
     }
 
-    public java.util.List<Seat> getAvailableSeats() 
-    {
+    public java.util.List<Seat> getAvailableSeats() {
         java.util.List<Seat> availableSeats = new java.util.ArrayList<>();
-        for (Seat seat : seats) 
-        {
-            if (!seat.isBooked()) 
-            {
+        for (Seat seat : seats) {
+            if (!seat.isBooked()) {
                 availableSeats.add(seat);
             }
         }
@@ -131,8 +123,7 @@ public class Carriage
     }
 
     @Override
-    public String toString() 
-    {
+    public String toString() {
         return "Carriage{" +
                 "id='" + carriageId + '\'' +
                 ", nomor=" + carriageNumber +

@@ -1,3 +1,14 @@
+/**
+ * File       : Train.java
+ * Deskripsi  : berisi atribut dan method dalam class Train
+ * Pembuat    : Kelompok 6
+ *  Ivan Pratomo Soelistio - 24060123120011
+ *  Julius Tegar Aji Putra - 24060123130117
+ *  Muhammad Danendra Daffa - 24060123140164
+ *  Muhammad Imron Rosyadi - 24060123140204
+ * Tanggal    : 18 Maret 2025
+ */
+
 public class Train 
 {
     private String trainId;
@@ -5,16 +16,14 @@ public class Train
     private double maxSpeed; // dalam km/jam
     private java.util.List<Carriage> carriages;
     
-    public Train(String trainId, String trainName, double maxSpeed) 
-    {
+    public Train(String trainId, String trainName, double maxSpeed) {
         this.trainId = trainId;
         this.trainName = trainName;
         this.maxSpeed = maxSpeed;
         this.carriages = new java.util.ArrayList<>();
     }
     
-    public void configureStandardPassengerTrain() 
-    {
+    public void configureStandardPassengerTrain() {
         String baseId = trainId + "-";
         
         addCarriage(Carriage.createEksekutifCarriage(baseId + "X", 1));
@@ -27,8 +36,7 @@ public class Train
         addCarriage(Carriage.createEkonomiCarriage(baseId + "E3", 6));
     }
     
-    public void configureEkspresTrain() 
-    {
+    public void configureEkspresTrain() {
         String baseId = trainId + "-";
         
         addCarriage(Carriage.createEksekutifCarriage(baseId + "X", 1));
@@ -40,20 +48,15 @@ public class Train
         addCarriage(Carriage.createEkonomiCarriage(baseId + "E1", 5));
         addCarriage(Carriage.createEkonomiCarriage(baseId + "E2", 6));
     }
-    
 
-    public void addCarriage(Carriage carriage) 
-    {
+    public void addCarriage(Carriage carriage) {
         carriages.add(carriage);
         System.out.println("Gerbong " + carriage.getCarriageNumber() + " (" + carriage.getCarriageClass() + ") ditambahkan ke kereta " + trainName);
     }
     
-    public boolean removeCarriage(String carriageId) 
-    {
-        for (int i = 0; i < carriages.size(); i++) 
-        {
-            if (carriages.get(i).getCarriageId().equals(carriageId)) 
-            {
+    public boolean removeCarriage(String carriageId) {
+        for (int i = 0; i < carriages.size(); i++) {
+            if (carriages.get(i).getCarriageId().equals(carriageId)) {
                 carriages.remove(i);
                 System.out.println("Gerbong dengan ID " + carriageId + " dihapus dari kereta " + trainName);
                 return true;
@@ -63,91 +66,71 @@ public class Train
         return false;
     }
     
-    public String getTrainId() 
-    { 
+    public String getTrainId() { 
         return trainId; 
     }
     
-    public void setTrainId(String trainId) 
-    { 
+    public void setTrainId(String trainId) { 
         this.trainId = trainId; 
     }
     
-    public String getTrainName() 
-    { 
+    public String getTrainName() { 
         return trainName; 
     }
     
-    public void setTrainName(String trainName) 
-    { 
+    public void setTrainName(String trainName) { 
         this.trainName = trainName; 
     }
     
-    public double getMaxSpeed() 
-    { 
+    public double getMaxSpeed() { 
         return maxSpeed; 
     }
     
-    public void setMaxSpeed(double maxSpeed) 
-    { 
+    public void setMaxSpeed(double maxSpeed) { 
         this.maxSpeed = maxSpeed; 
     }
     
-    public java.util.List<Carriage> getCarriages() 
-    { 
+    public java.util.List<Carriage> getCarriages() { 
         return carriages; 
     }
     
-    public int getTotalSeats() 
-    {
+    public int getTotalSeats() {
         int total = 0;
-        for (Carriage carriage : carriages) 
-        {
+        for (Carriage carriage : carriages) {
             total += carriage.getCapacity();
         }
         return total;
     }
     
-    public int getTotalAvailableSeats() 
-    {
+    public int getTotalAvailableSeats() {
         int total = 0;
-        for (Carriage carriage : carriages) 
-        {
+        for (Carriage carriage : carriages) {
             total += carriage.getTotalAvailableSeats();
         }
         return total;
     }
     
-    public java.util.List<Seat> getAllAvailableSeats() 
-    {
+    public java.util.List<Seat> getAllAvailableSeats() {
         java.util.List<Seat> allAvailableSeats = new java.util.ArrayList<>();
-        for (Carriage carriage : carriages) 
-        {
+        for (Carriage carriage : carriages) {
             allAvailableSeats.addAll(carriage.getAvailableSeats());
         }
         return allAvailableSeats;
     }
     
-    public Carriage findCarriageByNumber(int carriageNumber) 
-    {
-        for (Carriage carriage : carriages) 
-        {
-            if (carriage.getCarriageNumber() == carriageNumber) 
-            {
+    public Carriage findCarriageByNumber(int carriageNumber) {
+        for (Carriage carriage : carriages) {
+            if (carriage.getCarriageNumber() == carriageNumber) {
                 return carriage;
             }
         }
         return null;
     }
     
-    public Seat findSeatBySeatNumber(String seatNumber) 
-    {
-        for (Carriage carriage : carriages) 
-        {
-            for (Seat seat : carriage.getSeats()) 
-            {
-                if (seat.getSeatNumber().equals(seatNumber)) 
-                {
+    public Seat findSeatBySeatNumber(String seatNumber) {
+        for (Carriage carriage : carriages) {
+            for (Seat seat : carriage.getSeats()) {
+                if (seat.getSeatNumber().equals(seatNumber)) {
                     return seat;
                 }
             }
@@ -155,14 +138,10 @@ public class Train
         return null;
     }
     
-    public Carriage findCarriageBySeat(Seat seat) 
-    {
-        for (Carriage carriage : carriages) 
-        {
-            for (Seat s : carriage.getSeats()) 
-            {
-                if (s.getSeatId().equals(seat.getSeatId())) 
-                {
+    public Carriage findCarriageBySeat(Seat seat) {
+        for (Carriage carriage : carriages) {
+            for (Seat s : carriage.getSeats()) {
+                if (s.getSeatId().equals(seat.getSeatId())) {
                     return carriage;
                 }
             }
@@ -171,8 +150,7 @@ public class Train
     }
     
     @Override
-    public String toString() 
-    {
+    public String toString() {
         return "Kereta{" +
                 "id='" + trainId + '\'' +
                 ", nama='" + trainName + '\'' +

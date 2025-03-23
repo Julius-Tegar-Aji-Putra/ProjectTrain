@@ -1,3 +1,14 @@
+/**
+ * File       : Main.java
+ * Deskripsi  : berisi main driver untuk mendemonstrasikan sistem pemesanan tiket kereta api
+ * Pembuat    : Kelompok 6
+ *  Ivan Pratomo Soelistio - 24060123120011
+ *  Julius Tegar Aji Putra - 24060123130117
+ *  Muhammad Danendra Daffa - 24060123140164
+ *  Muhammad Imron Rosyadi - 24060123140204
+ * Tanggal    : 18 Maret 2025
+ */
+
 public class Main 
 {
     public static void main(String[] args) 

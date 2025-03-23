@@ -1,3 +1,14 @@
+/**
+ * File       : Passenger.java
+ * Deskripsi  : berisi atribut dan method dalam class Passenger
+ * Pembuat    : Kelompok 6
+ *  Ivan Pratomo Soelistio - 24060123120011
+ *  Julius Tegar Aji Putra - 24060123130117
+ *  Muhammad Danendra Daffa - 24060123140164
+ *  Muhammad Imron Rosyadi - 24060123140204
+ * Tanggal    : 18 Maret 2025
+ */
+
 public class Passenger 
 {
     private String passengerId;
@@ -10,8 +21,7 @@ public class Passenger
     private String address;
     
     public Passenger(String passengerId, String name, int age, String gender, String idNumber,
-                    String email, String phoneNumber, String address) 
-    {
+                    String email, String phoneNumber, String address) {
         this.passengerId = passengerId;
         this.name = name;
         this.age = age;
@@ -22,94 +32,76 @@ public class Passenger
         this.address = address;
     }
     
-    public String getPassengerId() 
-    { 
+    public String getPassengerId() { 
         return passengerId;
     }
 
-    public void setPassengerId(String passengerId) 
-    { 
+    public void setPassengerId(String passengerId) { 
         this.passengerId = passengerId; 
     }
     
-    public String getName() 
-    { 
+    public String getName() { 
         return name; 
     }
 
-    public void setName(String name) 
-    { 
+    public void setName(String name) { 
         this.name = name; 
     }
     
-    public int getAge() 
-    { 
+    public int getAge() { 
         return age; 
     }
 
-    public void setAge(int age) 
-    { 
+    public void setAge(int age) { 
         this.age = age; 
     }
     
-    public String getGender() 
-    { 
+    public String getGender() { 
         return gender; 
     }
 
-    public void setGender(String gender) 
-    { 
+    public void setGender(String gender) { 
         this.gender = gender;
     }
     
-    public String getIdNumber() 
-    { 
+    public String getIdNumber() { 
         return idNumber;
     }
 
-    public void setIdNumber(String idNumber) 
-    { 
+    public void setIdNumber(String idNumber) { 
         this.idNumber = idNumber; 
     }
     
-    public String getEmail() 
-    {
+    public String getEmail() {
         return email;
     }
     
-    public void setEmail(String email) 
-    {
+    public void setEmail(String email) {
         this.email = email;
     }
     
-    public String getPhoneNumber() 
-    {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
     
-    public void setPhoneNumber(String phoneNumber) 
-    {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     
-    public String getAddress() 
-    {
+    public String getAddress() {
         return address;
     }
     
-    public void setAddress(String address) 
-    {
+    public void setAddress(String address) {
         this.address = address;
     }
     
-    public boolean validateIdNumber() 
-    {
+    public boolean validateIdNumber() {
         return idNumber != null && idNumber.length() >= 10;
     }
     
     @Override
-    public String toString() 
-    {
+    public String toString() {
         return "Passenger{" +
                 "passengerId='" + passengerId + '\'' +
                 ", name='" + name + '\'' +
